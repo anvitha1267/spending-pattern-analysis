@@ -1,10 +1,10 @@
 # Spending Pattern Analysis
 
-A research project analyzing federal spending trends and anomalies using [USASpending.gov](https://usaspending.gov) data.
+For analyzing government spending trends and anomalies using [USASpending.gov](https://usaspending.gov) data.
 
 ## Goal
 
-Build a tool that lets users select a geographic region (state, county, city) and optionally a spending category, then surfaces spending trends and anomalies — e.g.:
+A tool that lets users select a geographic region (state, county, city) and/or a spending category, then surfaces spending trends and anomalies, such as:
 
 > "Data shows that Connecticut spending on defense increased by 34% in FY2024."
 
