@@ -1,0 +1,11 @@
+Create a simple web interface that resembles a python notebook. The web page will demonstrate anomaly detection as follows.
+* The user will choose a State (California, Illinois, etc.)
+* The page will create three different synthetic time series, with annual data from the last 20 years (e.g. 2005, 2006, ... 2025):
+  * one that resembles a "stable" budget, with some noise, and maybe a 1-3% annual increase or decrease
+  * one that shows a steep notable change in the most recent year
+  * one that is ambiguous, or shows a steep change some time that is not the most recent year
+* To make a synthetic time series, choose a random decimal number between 1 and 90. That will be the 2005 budget in millions, e.g. 20.176 -> $20,176,000. Create the rest of the time series as described above, with a total of 20 points for each.
+* The page will first display these three time series in a standard plot
+* There will be two sections after this, each with three columns (one column for each time series)
+* the first section will show step-by-step how isolation forest anomaly detection would work on the time series
+* the second will show how local outlier factors would work on the time series
