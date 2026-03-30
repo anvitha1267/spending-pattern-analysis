@@ -1,0 +1,285 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.page-header {
+  background: #0f172a;
+  color: white;
+  padding: 1.25rem 2rem;
+}
+.page-header h1 { font-size: 1.25rem; font-weight: 600; }
+.page-header p  { font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem; }
+
+/* ─── Controls ───────────────────────────────────────────────────────────── */
+
+.controls {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.control-group label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+select {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: white;
+  color: #1e293b;
+  cursor: pointer;
+  min-width: 210px;
+}
+select:focus { outline: 2px solid #3b82f6; outline-offset: 1px; }
+
+.explainer {
+  font-size: 0.78rem;
+  color: #64748b;
+  max-width: 340px;
+  line-height: 1.5;
+  align-self: center;
+  padding-top: 0.8rem;
+}
+.explainer strong { color: #334155; }
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+
+.btn-primary {
+  padding: 0.5rem 1.25rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-primary:hover    { background: #1d4ed8; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── Stats bar ──────────────────────────────────────────────────────────── */
+
+.stats-bar {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 2.5rem;
+}
+.stat-item        { font-size: 0.82rem; color: #475569; }
+.stat-item strong { color: #0f172a; font-weight: 600; }
+.stat-note        { font-size: 0.75rem; color: #94a3b8; margin-left: auto; }
+
+/* ─── Series grid ────────────────────────────────────────────────────────── */
+
+.series-grid {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.series-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.series-header {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.series-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.series-code {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+.series-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.series-parent {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+.series-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.series-total {
+  font-size: 0.78rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.info-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.info-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 1rem;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.1s;
+}
+.info-btn:hover { color: #475569; }
+
+.info-tooltip {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;          /* flush — no gap to accidentally cross */
+  padding-top: 6px;   /* visual breathing room, but still part of the hover area */
+  width: 280px;
+  z-index: 100;
+}
+.info-tooltip-inner {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #334155;
+  text-align: left;
+}
+/* Opened by JS click; closes on outside click */
+.info-wrap.open .info-tooltip { display: block; }
+.info-tooltip p { margin-bottom: 0.35rem; }
+.info-tooltip a {
+  display: inline-block;
+  margin-top: 0.4rem;
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+.info-tooltip a:hover { text-decoration: underline; }
+.recipient-duns { font-size: 0.75rem; color: #64748b; }
+.recipient-link-loading { font-size: 0.78rem; color: #94a3b8; font-style: italic; display: block; margin-top: 0.4rem; }
+
+/* ─── Stacked charts (shared x-axis appearance) ──────────────────────────── */
+
+.charts-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Thin divider between panels, except below the last one */
+.chart-item:not(.chart-item--bottom) {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+.chart-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  padding: 6px 0 2px;
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  height: 90px;
+}
+
+/* Extra height on the bottom panel to accommodate x-axis tick labels */
+.chart-canvas-wrap--bottom {
+  height: 110px;
+}
+
+.btn-secondary {
+  padding: 0.5rem 1.25rem;
+  background: white;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-secondary:hover    { background: #eff6ff; }
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.resample-note { font-size: 0.78rem; color: #64748b; }
+
+/* ─── States ─────────────────────────────────────────────────────────────── */
+
+.loading-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.error-msg {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: #dc2626;
+  font-size: 0.85rem;
+}

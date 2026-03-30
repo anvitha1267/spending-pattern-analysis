@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USASpending Explorer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>USASpending Explorer</h1>
+  <p>Federal obligation time series FY2008–FY2024 &mdash; data via api.usaspending.gov</p>
+</div>
+
+<div class="controls">
+  <div class="control-group">
+    <label for="state-select">Scope</label>
+    <select id="state-select"></select>
+  </div>
+
+  <div class="control-group">
+    <label for="type-select">Category Type</label>
+    <select id="type-select">
+      <optgroup label="By Agency">
+        <option value="agency">Top-Level Agency</option>
+        <option value="subagency">Sub-Agency / Department</option>
+      </optgroup>
+      <optgroup label="By Recipient">
+        <option value="recipient">Contractor / Recipient</option>
+      </optgroup>
+      <optgroup label="By Industry (Contracts)">
+        <option value="naics">NAICS Industry Code</option>
+      </optgroup>
+      <optgroup label="By Assistance Program">
+        <option value="cfda">CFDA Program</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="explainer" id="type-explainer"></div>
+
+  <div class="action-buttons">
+    <button class="btn-primary" id="load-btn">Load Data</button>
+    <button class="btn-secondary" id="resample-btn" hidden>&#8635; Resample</button>
+    <span class="resample-note" id="resample-note" hidden></span>
+  </div>
+</div>
+
+<div class="stats-bar" id="stats-bar">
+  <span class="stat-note">Select a scope and category type, then click Load Data.</span>
+</div>
+
+<div class="series-grid" id="series-grid"></div>
+
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
